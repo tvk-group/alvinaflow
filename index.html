@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alvina Flow – Method & Practice</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .hero-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .hero-container img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(136, 19, 55, 0.5);
+      color: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="bg-pink-50 font-sans text-gray-800">
+
+  <header class="bg-white shadow px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-pink-800">Alvina Flow</h1>
+    <select onchange="location = this.value;" class="border text-sm text-pink-700 border-pink-300 px-2 py-1 rounded">
+      <option value="index.html">English</option>
+      <option value="lang/de.html">Deutsch</option>
+      <option value="lang/ru.html">Русский</option>
+    </select>
+  </header>
+
+  <section class="hero-container">
+    <img src="alvina-hero.png" alt="Alvina Flow Banner"/>
+    <div class="hero-text">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">Welcome to the Alvina Flow</h2>
+      <p class="text-lg mb-4">A method of healing, breath, movement, and bonding between mother and child.</p>
+      <a href="#flow" class="bg-white text-pink-900 font-semibold px-6 py-2 rounded hover:bg-pink-100">Explore the Method</a>
+    </div>
+  </section>
+
+  <section id="flow" class="bg-pink-100 px-6 py-12 text-center">
+    <h3 class="text-2xl font-bold text-pink-900">Pillars of the Method</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+      <div class="bg-white p-6 rounded shadow text-left">
+        <h4 class="text-xl font-semibold text-pink-700">✨ Flow + Breath</h4>
+        <p class="mt-2 text-pink-600">Dynamic sequences that reconnect breath and body into harmony.</p>
+      </div>
+      <div class="bg-white p-6 rounded shadow text-left">
+        <h4 class="text-xl font-semibold text-pink-700">👩‍👧 Mother & Child Bonding</h4>
+        <p class="mt-2 text-pink-600">A co-practice journey filled with empathy, mirroring, and mutual presence.</p>
+      </div>
+      <div class="bg-white p-6 rounded shadow text-left">
+        <h4 class="text-xl font-semibold text-pink-700">🌸 Feminine Strength</h4>
+        <p class="mt-2 text-pink-600">Soft resilience and inner power through movement and stillness.</p>
+      </div>
+      <div class="bg-white p-6 rounded shadow text-left">
+        <h4 class="text-xl font-semibold text-pink-700">🧘‍♀️ Rituals & Integration</h4>
+        <p class="mt-2 text-pink-600">Integrate the practice into everyday life with intention-setting and sacred space.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="text-center py-12">
+    <h4 class="text-xl font-bold text-pink-800">Join the Flow Circle</h4>
+    <p class="text-pink-600 mt-2">Get audio guides, video flows, and weekly reflections.</p>
+    <form action="https://formsubmit.co/flow@alvina.app" method="POST" class="mt-4">
+      <input type="email" name="email" placeholder="Your Email" required class="px-4 py-2 border rounded">
+      <button type="submit" class="ml-2 px-6 py-2 bg-pink-600 text-white rounded hover:bg-pink-700">Subscribe</button>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New subscription from Alvina Flow">
+    </form>
+  </section>
+
+  <footer class="text-center py-6 text-pink-700">
+    <p>&copy; 2025 Alvina Flow – Move with Meaning</p>
+  </footer>
+</body>
+</html>
