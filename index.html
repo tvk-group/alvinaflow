@@ -2,88 +2,391 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alvina Flow – Method & Practice</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    .hero-container {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-    }
-    .hero-container img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(136, 19, 55, 0.5);
-      color: white;
-      padding: 2rem;
-      border-radius: 1rem;
-      text-align: center;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Alvina Flow — A gentle practice of breath, movement, healing, and mother-child connection. A feminine wellbeing method for presence, emotional balance, and inner flow." />
+  <meta name="theme-color" content="#faf8f6" />
+  <title>Alvina Flow — A Method of Breath, Movement & Connection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body class="bg-pink-50 font-sans text-gray-800">
+<body>
 
-  <header class="bg-white shadow px-6 py-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold text-pink-800">Alvina Flow</h1>
-    <select onchange="location = this.value;" class="border text-sm text-pink-700 border-pink-300 px-2 py-1 rounded">
-      <option value="index.html">English</option>
-      <option value="lang/de.html">Deutsch</option>
-      <option value="lang/ru.html">Русский</option>
-    </select>
+  <div class="petals" aria-hidden="true">
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+  </div>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">Alvina Flow</a>
+      <nav class="nav-desktop">
+        <a href="#method" data-i18n="nav_method">Method</a>
+        <a href="#breath" data-i18n="nav_breath">Breath</a>
+        <a href="#bonding" data-i18n="nav_bonding">Bonding</a>
+        <a href="#library" data-i18n="nav_practices">Practices</a>
+        <a href="#circle" data-i18n="nav_circle">Circle</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#join" data-i18n="nav_join">Join</a>
+      </nav>
+      <select id="lang-select" class="lang-select" aria-label="Select language"></select>
+      <button class="menu-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <section class="hero-container">
-    <img src="alvina-hero.png" alt="Alvina Flow Banner"/>
-    <div class="hero-text">
-      <h2 class="text-3xl md:text-5xl font-bold mb-4">Welcome to the Alvina Flow</h2>
-      <p class="text-lg mb-4">A method of healing, breath, movement, and bonding between mother and child.</p>
-      <a href="#flow" class="bg-white text-pink-900 font-semibold px-6 py-2 rounded hover:bg-pink-100">Explore the Method</a>
+  <nav class="nav-mobile">
+    <a href="#method" data-i18n="nav_method">Method</a>
+    <a href="#breath" data-i18n="nav_breath">Breath</a>
+    <a href="#bonding" data-i18n="nav_bonding">Bonding</a>
+    <a href="#library" data-i18n="nav_practices">Practices</a>
+    <a href="#circle" data-i18n="nav_circle">Circle</a>
+    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="#join" data-i18n="nav_join">Join</a>
+  </nav>
+
+  <!-- 1. Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="alvina-hero.png" alt="" />
+    </div>
+    <div class="hero-gradient"></div>
+    <div class="hero-waves" aria-hidden="true">
+      <svg viewBox="0 0 1000 120" preserveAspectRatio="none">
+        <path class="wave-path" fill="rgba(232,213,208,0.3)" d="M0,60 Q250,20 500,60 T1000,60 L1000,120 L0,120 Z"/>
+        <path class="wave-path" fill="rgba(212,200,220,0.2)" d="M0,70 Q250,40 500,70 T1000,70 L1000,120 L0,120 Z"/>
+      </svg>
+    </div>
+    <div class="hero-content reveal visible">
+      <div class="breath-circle" aria-hidden="true">
+        <svg viewBox="0 0 100 100">
+          <circle class="breath-ring" cx="50" cy="50" r="45"/>
+          <circle class="breath-ring-inner" cx="50" cy="50" r="30"/>
+        </svg>
+      </div>
+      <h1 class="hero-title">Alvina Flow</h1>
+      <p class="hero-subtitle" data-i18n="hero_sub">A gentle practice of breath, movement, healing, and mother-child connection.</p>
+      <p class="hero-text" data-i18n="hero_text">A feminine wellbeing method designed to bring presence, emotional balance, soft strength, and meaningful connection into everyday life.</p>
+      <div class="hero-buttons">
+        <a href="#method" class="btn btn-primary" data-i18n="btn_explore">Explore the Method</a>
+        <a href="#circle" class="btn btn-secondary" data-i18n="btn_circle">Join the Flow Circle</a>
+        <a href="#join" class="btn btn-gold" data-i18n="btn_start">Start Your Practice</a>
+      </div>
     </div>
   </section>
 
-  <section id="flow" class="bg-pink-100 px-6 py-12 text-center">
-    <h3 class="text-2xl font-bold text-pink-900">Pillars of the Method</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-      <div class="bg-white p-6 rounded shadow text-left">
-        <h4 class="text-xl font-semibold text-pink-700">✨ Flow + Breath</h4>
-        <p class="mt-2 text-pink-600">Dynamic sequences that reconnect breath and body into harmony.</p>
+  <!-- 2. The Alvina Flow Method -->
+  <section class="section section-alt" id="method">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="method_label">The Practice</span>
+        <h2 class="section-title" data-i18n="method_title">The Alvina Flow Method</h2>
+        <p class="section-desc" data-i18n="method_desc">A circular path of presence — each step flowing naturally into the next, like breath returning to the body.</p>
       </div>
-      <div class="bg-white p-6 rounded shadow text-left">
-        <h4 class="text-xl font-semibold text-pink-700">👩‍👧 Mother & Child Bonding</h4>
-        <p class="mt-2 text-pink-600">A co-practice journey filled with empathy, mirroring, and mutual presence.</p>
-      </div>
-      <div class="bg-white p-6 rounded shadow text-left">
-        <h4 class="text-xl font-semibold text-pink-700">🌸 Feminine Strength</h4>
-        <p class="mt-2 text-pink-600">Soft resilience and inner power through movement and stillness.</p>
-      </div>
-      <div class="bg-white p-6 rounded shadow text-left">
-        <h4 class="text-xl font-semibold text-pink-700">🧘‍♀️ Rituals & Integration</h4>
-        <p class="mt-2 text-pink-600">Integrate the practice into everyday life with intention-setting and sacred space.</p>
+      <div class="method-diagram reveal">
+        <div class="method-circle">
+          <svg viewBox="0 0 400 400" aria-hidden="true">
+            <circle class="method-ring" cx="200" cy="200" r="180"/>
+            <circle class="method-ring-pulse" cx="200" cy="200" r="180"/>
+            <circle class="method-ring" cx="200" cy="200" r="140" opacity="0.5"/>
+          </svg>
+          <div class="method-node">
+            <div class="method-node-dot"></div>
+            <div class="method-node-label" data-i18n="node_breath">Breath</div>
+          </div>
+          <div class="method-node">
+            <div class="method-node-dot"></div>
+            <div class="method-node-label" data-i18n="node_movement">Movement</div>
+          </div>
+          <div class="method-node">
+            <div class="method-node-dot"></div>
+            <div class="method-node-label" data-i18n="node_connection">Connection</div>
+          </div>
+          <div class="method-node">
+            <div class="method-node-dot"></div>
+            <div class="method-node-label" data-i18n="node_reflection">Reflection</div>
+          </div>
+          <div class="method-node">
+            <div class="method-node-dot"></div>
+            <div class="method-node-label" data-i18n="node_integration">Integration</div>
+          </div>
+          <div class="method-node">
+            <div class="method-node-dot"></div>
+            <div class="method-node-label" data-i18n="node_growth">Growth</div>
+          </div>
+          <div class="method-center">
+            <div class="method-center-text" data-i18n="method_center">Inner Flow</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="text-center py-12">
-    <h4 class="text-xl font-bold text-pink-800">Join the Flow Circle</h4>
-    <p class="text-pink-600 mt-2">Get audio guides, video flows, and weekly reflections.</p>
-    <form action="https://formsubmit.co/flow@alvina.app" method="POST" class="mt-4">
-      <input type="email" name="email" placeholder="Your Email" required class="px-4 py-2 border rounded">
-      <button type="submit" class="ml-2 px-6 py-2 bg-pink-600 text-white rounded hover:bg-pink-700">Subscribe</button>
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_subject" value="New subscription from Alvina Flow">
-    </form>
+  <!-- 3. Breath & Movement -->
+  <section class="section" id="breath">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="breath_label">Foundation</span>
+        <h2 class="section-title" data-i18n="breath_title">Breath & Movement</h2>
+        <p class="section-desc" data-i18n="breath_desc">Where presence begins. Gentle sequences that weave breath and body into one flowing rhythm.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">◯</div>
+          <h3 data-i18n="breath_card1_title">Conscious Breathing</h3>
+          <p data-i18n="breath_card1_text">Slow, intentional breath patterns that calm the nervous system and invite inner stillness.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">∿</div>
+          <h3 data-i18n="breath_card2_title">Flowing Movement</h3>
+          <p data-i18n="breath_card2_text">Soft, organic movement sequences that honor the body's natural wisdom and grace.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer class="text-center py-6 text-pink-700">
-    <p>&copy; 2025 Alvina Flow – Move with Meaning</p>
+  <!-- 4. Mother & Child Bonding -->
+  <section class="section section-lavender" id="bonding">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-visual reveal">
+          <div class="split-visual-inner">
+            <svg class="flow-lines" viewBox="0 0 200 200" aria-hidden="true">
+              <path class="flow-line" d="M20,100 Q60,40 100,100 T180,100"/>
+              <path class="flow-line" d="M20,120 Q80,60 120,120 T180,120" style="animation-delay:-5s"/>
+              <path class="flow-line" d="M20,80 Q100,20 140,80 T180,80" style="animation-delay:-10s"/>
+              <circle cx="100" cy="100" r="8" fill="rgba(196,165,116,0.5)"/>
+              <circle cx="60" cy="90" r="5" fill="rgba(201,168,154,0.4)"/>
+              <circle cx="140" cy="110" r="5" fill="rgba(201,168,154,0.4)"/>
+            </svg>
+          </div>
+        </div>
+        <div class="split-content reveal">
+          <span class="section-label" data-i18n="bonding_label">Connection</span>
+          <h3 data-i18n="bonding_title">Mother & Child Bonding</h3>
+          <p data-i18n="bonding_desc">A sacred space for presence, mirroring, and gentle connection between mother and child.</p>
+          <p data-i18n="bonding_p1">Through shared breath and mirrored movement, mother and child create a language beyond words — one of presence, safety, and love.</p>
+          <p data-i18n="bonding_p2">These practices invite emotional safety, gentle rituals, and the quiet joy of being together in movement.</p>
+          <ul class="pillar-list">
+            <li data-i18n="bonding_li1">Presence and attunement</li>
+            <li data-i18n="bonding_li2">Mirroring through movement</li>
+            <li data-i18n="bonding_li3">Emotional safety and trust</li>
+            <li data-i18n="bonding_li4">Shared breath rituals</li>
+            <li data-i18n="bonding_li5">Gentle connection practices</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Feminine Strength -->
+  <section class="section" id="strength">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="strength_label">Inner Power</span>
+        <h2 class="section-title" data-i18n="strength_title">Feminine Strength</h2>
+        <p class="section-desc" data-i18n="strength_desc">Soft resilience — the quiet power that rises from stillness, breath, and embodied presence.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">✦</div>
+          <h3 data-i18n="strength_card1_title">Soft Strength</h3>
+          <p data-i18n="strength_card1_text">Discover power that does not force — strength rooted in grace, breath, and self-compassion.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">◎</div>
+          <h3 data-i18n="strength_card2_title">Emotional Balance</h3>
+          <p data-i18n="strength_card2_text">Gentle practices to navigate feelings with presence, creating space for healing and renewal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Rituals & Integration -->
+  <section class="section section-alt" id="rituals">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="rituals_label">Integration</span>
+        <h2 class="section-title" data-i18n="rituals_title">Rituals & Integration</h2>
+        <p class="section-desc" data-i18n="rituals_desc">Sacred moments woven into daily life — small rituals that anchor your practice in the world you live in.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">☀</div>
+          <h3 data-i18n="rituals_card1_title">Morning Rituals</h3>
+          <p data-i18n="rituals_card1_text">Begin each day with intention — a breath, a movement, a moment of gratitude.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">☽</div>
+          <h3 data-i18n="rituals_card2_title">Evening Integration</h3>
+          <p data-i18n="rituals_card2_text">Close the day with reflection, release, and gentle restoration of body and spirit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Guided Practice Library -->
+  <section class="section" id="library">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="library_label">Library</span>
+        <h2 class="section-title" data-i18n="library_title">Guided Practice Library</h2>
+        <p class="section-desc" data-i18n="library_desc">Curated practices for every moment of your day — from morning awakening to evening rest.</p>
+      </div>
+      <div class="practice-grid">
+        <div class="practice-card practice-card-1 reveal">
+          <div class="practice-card-bg"></div>
+          <div class="practice-card-overlay">
+            <h4 data-i18n="practice1">Morning Flow</h4>
+            <span data-i18n="practice1_sub">Awaken gently</span>
+          </div>
+        </div>
+        <div class="practice-card practice-card-2 reveal">
+          <div class="practice-card-bg"></div>
+          <div class="practice-card-overlay">
+            <h4 data-i18n="practice2">Calm Breath</h4>
+            <span data-i18n="practice2_sub">Find stillness</span>
+          </div>
+        </div>
+        <div class="practice-card practice-card-3 reveal">
+          <div class="practice-card-bg"></div>
+          <div class="practice-card-overlay">
+            <h4 data-i18n="practice3">Mother & Child Flow</h4>
+            <span data-i18n="practice3_sub">Connect together</span>
+          </div>
+        </div>
+        <div class="practice-card practice-card-4 reveal">
+          <div class="practice-card-bg"></div>
+          <div class="practice-card-overlay">
+            <h4 data-i18n="practice4">Evening Ritual</h4>
+            <span data-i18n="practice4_sub">Release the day</span>
+          </div>
+        </div>
+        <div class="practice-card practice-card-5 reveal">
+          <div class="practice-card-bg"></div>
+          <div class="practice-card-overlay">
+            <h4 data-i18n="practice5">Soft Strength</h4>
+            <span data-i18n="practice5_sub">Inner power</span>
+          </div>
+        </div>
+        <div class="practice-card practice-card-6 reveal">
+          <div class="practice-card-bg"></div>
+          <div class="practice-card-overlay">
+            <h4 data-i18n="practice6">Emotional Reset</h4>
+            <span data-i18n="practice6_sub">Restore balance</span>
+          </div>
+        </div>
+        <div class="practice-card practice-card-7 reveal">
+          <div class="practice-card-bg"></div>
+          <div class="practice-card-overlay">
+            <h4 data-i18n="practice7">Reflection Practice</h4>
+            <span data-i18n="practice7_sub">Inner wisdom</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Weekly Reflections -->
+  <section class="section section-lavender" id="reflections">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="reflections_label">Weekly</span>
+        <h2 class="section-title" data-i18n="reflections_title">Weekly Reflections</h2>
+        <p class="section-desc" data-i18n="reflections_desc">Gentle prompts and contemplations to deepen your practice and honor your inner journey.</p>
+      </div>
+      <div class="reflection-card reveal">
+        <p class="reflection-quote" data-i18n="reflection_quote">"In the space between breath and movement, we find ourselves — whole, present, and beautifully alive."</p>
+        <p class="reflection-author" data-i18n="reflection_author">Weekly Reflection</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Flow Circle -->
+  <section class="section" id="circle">
+    <div class="container">
+      <div class="circle-section reveal">
+        <div class="circle-ring" aria-hidden="true"></div>
+        <div class="circle-ring" aria-hidden="true"></div>
+        <div class="circle-content">
+          <span class="section-label" data-i18n="circle_label">Community</span>
+          <h2 class="section-title" data-i18n="circle_title">The Flow Circle</h2>
+          <p class="section-desc" data-i18n="circle_desc">A gentle circle for guided practices, reflections, rituals, and shared growth. A warm community walking the path together.</p>
+          <div class="circle-benefits">
+            <span class="circle-benefit" data-i18n="circle_b1">Guided practices</span>
+            <span class="circle-benefit" data-i18n="circle_b2">Weekly reflections</span>
+            <span class="circle-benefit" data-i18n="circle_b3">Sacred rituals</span>
+            <span class="circle-benefit" data-i18n="circle_b4">Shared growth</span>
+          </div>
+          <a href="#join" class="btn btn-primary" data-i18n="btn_circle">Join the Flow Circle</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. About the Practice -->
+  <section class="section section-alt" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="about_label">Philosophy</span>
+        <h2 class="section-title" data-i18n="about_title">About the Practice</h2>
+        <p class="section-desc" data-i18n="about_desc">Alvina Flow is more than movement — it is a way of being.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-item reveal">
+          <h4 data-i18n="about1_title">A Method</h4>
+          <p data-i18n="about1_text">A structured yet fluid approach to feminine wellbeing.</p>
+        </div>
+        <div class="about-item reveal">
+          <h4 data-i18n="about2_title">A Ritual</h4>
+          <p data-i18n="about2_text">Sacred moments that transform ordinary days.</p>
+        </div>
+        <div class="about-item reveal">
+          <h4 data-i18n="about3_title">A Journey</h4>
+          <p data-i18n="about3_text">A personal path of healing, growth, and connection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Join / Contact -->
+  <section class="section contact-section" id="join">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="join_label">Begin</span>
+        <h2 class="section-title" data-i18n="join_title">Start Your Practice</h2>
+        <p class="section-desc" data-i18n="join_desc">Take the first gentle step. Join our community and receive practices, reflections, and guidance for your flow path.</p>
+      </div>
+      <form class="contact-form reveal" action="https://formsubmit.co/flow@alvina.app" method="POST">
+        <div class="form-group">
+          <input type="text" name="name" data-i18n="form_name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" data-i18n="form_email" placeholder="Your email" required />
+        </div>
+        <div class="form-group">
+          <textarea name="message" data-i18n="form_message" placeholder="Share your intention (optional)"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%" data-i18n="form_submit">Join the Flow</button>
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_subject" value="New Alvina Flow subscription" />
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-logo">Alvina Flow</p>
+    <p class="footer-tagline" data-i18n="footer_tagline">Move with meaning. Breathe with presence. Flow with love.</p>
+    <p class="footer-copy" data-i18n="footer_copy">© 2025 Alvina Flow. All rights reserved.</p>
   </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

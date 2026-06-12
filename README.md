@@ -1,35 +1,36 @@
-# AlvinaFlow
+# Alvina Flow
 
-AlvinaFlow is an AI-powered beauty, wellness, appointment, workflow and client experience platform developed within the TVK Group ecosystem.
+A premium feminine wellbeing and movement practice platform — a gentle method of breath, movement, healing, and mother-child connection.
 
-The platform is designed for beauty salons, wellness centers, clinics, service providers and future AI-driven personal care businesses.
+## About
 
-## Core Purpose
+Alvina Flow is a human-centered practice experience focused on:
 
-AlvinaFlow helps businesses manage:
-
-- Appointments
-- Client relationships
-- Beauty and wellness workflows
-- AI-assisted service recommendations
-- Digital customer experience
-- Staff and operational processes
-- Future marketplace and automation integrations
-
-## Ecosystem
-
-AlvinaFlow is connected to the broader TVK Group / ALVINA ecosystem, including:
-
-- ALVINA
-- Ava Santé
-- Ava Sentient
-- TVK Group
-- TVK Labs
+- Breath & movement
+- Feminine strength
+- Mother & child bonding
+- Healing rituals
+- Emotional balance
+- Inner flow & personal transformation
 
 ## Website
 
 https://www.alvinaflow.com
 
-## Status
+## Local Development
 
-Initial public website and brand foundation.
+Serve the static site with any HTTP server:
+
+```bash
+python3 -m http.server 8080
+```
+
+Then open http://localhost:8080
+
+## Deployment
+
+The site is configured for Vercel static hosting via `vercel.json`.
+
+## Languages
+
+The website supports 25 languages via an in-page language selector.
