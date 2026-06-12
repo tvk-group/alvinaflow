@@ -53,31 +53,59 @@
 
   <!-- 1. Hero -->
   <section class="hero" id="hero">
-    <div class="hero-bg">
-      <img src="alvina-hero.png" alt="" />
+    <div class="hero-gradient" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-portrait reveal visible">
+        <div class="hero-portrait-frame">
+          <div class="hero-portrait-glow" aria-hidden="true"></div>
+          <div class="hero-portrait-ring" aria-hidden="true">
+            <svg viewBox="0 0 200 200">
+              <circle class="portrait-ring-outer" cx="100" cy="100" r="96"/>
+              <circle class="portrait-ring-inner" cx="100" cy="100" r="88"/>
+            </svg>
+          </div>
+          <video
+            class="hero-portrait-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="alvina-portrait.png"
+            aria-label="Alvina Flow practice guide"
+          >
+            <source src="alvina-hero.mp4" type="video/mp4" />
+          </video>
+          <img
+            class="hero-portrait-fallback"
+            src="alvina-portrait.png"
+            alt="Alvina Flow — gentle practice guide"
+          />
+          <div class="hero-portrait-shimmer" aria-hidden="true"></div>
+          <div class="hero-portrait-light" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="hero-content reveal visible">
+        <div class="breath-circle" aria-hidden="true">
+          <svg viewBox="0 0 100 100">
+            <circle class="breath-ring" cx="50" cy="50" r="45"/>
+            <circle class="breath-ring-inner" cx="50" cy="50" r="30"/>
+          </svg>
+        </div>
+        <h1 class="hero-title">Alvina Flow</h1>
+        <p class="hero-subtitle" data-i18n="hero_sub">A gentle practice of breath, movement, healing, and mother-child connection.</p>
+        <p class="hero-text" data-i18n="hero_text">A feminine wellbeing method designed to bring presence, emotional balance, soft strength, and meaningful connection into everyday life.</p>
+        <div class="hero-buttons">
+          <a href="#method" class="btn btn-primary" data-i18n="btn_explore">Explore the Method</a>
+          <a href="#circle" class="btn btn-secondary" data-i18n="btn_circle">Join the Flow Circle</a>
+          <a href="#join" class="btn btn-gold" data-i18n="btn_start">Start Your Practice</a>
+        </div>
+      </div>
     </div>
-    <div class="hero-gradient"></div>
     <div class="hero-waves" aria-hidden="true">
       <svg viewBox="0 0 1000 120" preserveAspectRatio="none">
         <path class="wave-path" fill="rgba(232,213,208,0.3)" d="M0,60 Q250,20 500,60 T1000,60 L1000,120 L0,120 Z"/>
         <path class="wave-path" fill="rgba(212,200,220,0.2)" d="M0,70 Q250,40 500,70 T1000,70 L1000,120 L0,120 Z"/>
       </svg>
-    </div>
-    <div class="hero-content reveal visible">
-      <div class="breath-circle" aria-hidden="true">
-        <svg viewBox="0 0 100 100">
-          <circle class="breath-ring" cx="50" cy="50" r="45"/>
-          <circle class="breath-ring-inner" cx="50" cy="50" r="30"/>
-        </svg>
-      </div>
-      <h1 class="hero-title">Alvina Flow</h1>
-      <p class="hero-subtitle" data-i18n="hero_sub">A gentle practice of breath, movement, healing, and mother-child connection.</p>
-      <p class="hero-text" data-i18n="hero_text">A feminine wellbeing method designed to bring presence, emotional balance, soft strength, and meaningful connection into everyday life.</p>
-      <div class="hero-buttons">
-        <a href="#method" class="btn btn-primary" data-i18n="btn_explore">Explore the Method</a>
-        <a href="#circle" class="btn btn-secondary" data-i18n="btn_circle">Join the Flow Circle</a>
-        <a href="#join" class="btn btn-gold" data-i18n="btn_start">Start Your Practice</a>
-      </div>
     </div>
   </section>
 
