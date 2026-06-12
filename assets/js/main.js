@@ -84,6 +84,26 @@
     reveals.forEach(el => observer.observe(el));
   }
 
+  function initHeroVideo() {
+    const video = document.querySelector('.hero-portrait-video');
+    const frame = document.querySelector('.hero-portrait-frame');
+    if (!video || !frame) return;
+
+    const useFallback = () => frame.classList.add('no-video');
+
+    video.addEventListener('error', useFallback);
+
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(useFallback);
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.pause();
+      useFallback();
+    }
+  }
+
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', e => {
@@ -102,6 +122,7 @@
     initLanguageSwitcher();
     initHeader();
     initReveal();
+    initHeroVideo();
     initSmoothScroll();
   });
 })();
