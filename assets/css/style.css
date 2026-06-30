@@ -525,6 +525,28 @@ button {
   box-shadow: 0 12px 40px rgba(196, 165, 116, 0.3);
 }
 
+.btn-sm {
+  padding: 0.55rem 1rem;
+  font-size: 0.85rem;
+}
+
+.btn-ghost {
+  color: var(--text-muted);
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  color: var(--text);
+  background: rgba(166, 124, 109, 0.08);
+}
+
+#pwa-sticky-dismiss {
+  min-width: 2.25rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
 /* Sections */
 .section {
   padding: 6rem 1.5rem;
@@ -1135,5 +1157,129 @@ button {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* PWA Install */
+.app-install-section {
+  background: var(--warm-white);
+}
+
+.app-install-card {
+  display: grid;
+  gap: 2rem;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, var(--pearl) 0%, var(--lavender-soft) 100%);
+  border: 1px solid var(--rose-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.app-install-copy h2 {
+  margin: 0.5rem 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 500;
+  color: var(--text);
+}
+
+.app-install-copy p {
+  margin-bottom: 1.5rem;
+  max-width: 560px;
+  color: var(--text-light);
+}
+
+.app-install-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.app-install-steps {
+  display: grid;
+  gap: 1rem;
+}
+
+.install-step {
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--rose-soft);
+  border-radius: var(--radius);
+}
+
+.install-platform {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+
+.install-step p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.pwa-sticky {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background: rgba(250, 248, 246, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--rose-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.pwa-sticky[hidden] {
+  display: none;
+}
+
+.pwa-sticky-text {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.pwa-sticky-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+body.has-pwa-sticky {
+  padding-bottom: 5.5rem;
+}
+
+@media (min-width: 768px) {
+  .app-install-card {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .pwa-sticky {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .pwa-sticky-actions {
+    justify-content: center;
   }
 }

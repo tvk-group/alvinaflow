@@ -118,11 +118,89 @@
     });
   }
 
+  function initPwa() {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+
+    let deferredPrompt = null;
+    const installBtn = document.getElementById('pwa-install-btn');
+    const stickyBar = document.getElementById('pwa-sticky');
+    const stickyInstall = document.getElementById('pwa-sticky-install');
+    const stickyDismiss = document.getElementById('pwa-sticky-dismiss');
+    let stickyDismissed = false;
+
+    try {
+      stickyDismissed = sessionStorage.getItem('alvinaflow-pwa-dismissed') === '1';
+    } catch (e) {}
+
+    function isStandalone() {
+      return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    }
+
+    function showInstallUi() {
+      if (isStandalone() || stickyDismissed) return;
+      if (installBtn) installBtn.hidden = !deferredPrompt;
+      if (stickyBar) stickyBar.hidden = false;
+      document.body.classList.add('has-pwa-sticky');
+    }
+
+    function hideInstallUi() {
+      if (installBtn) installBtn.hidden = true;
+      if (stickyBar) stickyBar.hidden = true;
+      document.body.classList.remove('has-pwa-sticky');
+    }
+
+    function promptInstall() {
+      if (!deferredPrompt) {
+        const steps = document.getElementById('app-install-steps');
+        if (steps) {
+          const header = document.querySelector('.header');
+          const offset = header ? header.offsetHeight + 16 : 72;
+          const top = steps.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+        return;
+      }
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(() => {
+        deferredPrompt = null;
+        hideInstallUi();
+      });
+    }
+
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault();
+      deferredPrompt = e;
+      showInstallUi();
+    });
+
+    if (installBtn) installBtn.addEventListener('click', promptInstall);
+    if (stickyInstall) stickyInstall.addEventListener('click', promptInstall);
+
+    if (stickyDismiss) {
+      stickyDismiss.addEventListener('click', () => {
+        stickyDismissed = true;
+        try {
+          sessionStorage.setItem('alvinaflow-pwa-dismissed', '1');
+        } catch (e) {}
+        hideInstallUi();
+      });
+    }
+
+    if (!isStandalone() && !stickyDismissed) {
+      window.setTimeout(showInstallUi, 1200);
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitcher();
     initHeader();
     initReveal();
     initHeroVideo();
     initSmoothScroll();
+    initPwa();
   });
 })();
