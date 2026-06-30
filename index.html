@@ -4,8 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Alvina Flow — A gentle practice of breath, movement, healing, and mother-child connection. A feminine wellbeing method for presence, emotional balance, and inner flow." />
-  <meta name="theme-color" content="#faf8f6" />
+  <meta name="theme-color" content="#c4a574" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Alvina Flow" />
   <title>Alvina Flow — A Method of Breath, Movement & Connection</title>
+  <link rel="manifest" href="/assets/web-app-manifest.json" />
+  <link rel="icon" href="/alvina-portrait.png" />
+  <link rel="apple-touch-icon" href="/alvina-portrait.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -383,7 +389,38 @@
     </div>
   </section>
 
-  <!-- 11. Join / Contact -->
+  <!-- 11. Install App -->
+  <section class="section app-install-section" id="app-install">
+    <div class="container">
+      <div class="app-install-card reveal">
+        <div class="app-install-copy">
+          <span class="section-label" data-i18n="app_install_label">Alvina Flow App</span>
+          <h2 data-i18n="app_install_title">Install the Alvina Flow App on alvinaflow.com</h2>
+          <p data-i18n="app_install_desc">Add Alvina Flow to your home screen — your gentle practice companion, always within reach. Works today via Add to Home Screen.</p>
+          <div class="app-install-actions">
+            <button type="button" class="btn btn-primary" id="pwa-install-btn" hidden data-i18n="app_install_btn">Install App</button>
+            <a href="#app-install-steps" class="btn btn-secondary" data-i18n="app_install_how">How to install</a>
+          </div>
+        </div>
+        <div class="app-install-steps" id="app-install-steps">
+          <div class="install-step">
+            <span class="install-platform" data-i18n="install_ios_label">iPhone / iPad</span>
+            <p data-i18n="install_ios_text">Safari → alvinaflow.com → Share → Add to Home Screen</p>
+          </div>
+          <div class="install-step">
+            <span class="install-platform" data-i18n="install_android_label">Android</span>
+            <p data-i18n="install_android_text">Chrome → alvinaflow.com → Menu → Install app</p>
+          </div>
+          <div class="install-step">
+            <span class="install-platform" data-i18n="install_desktop_label">Desktop</span>
+            <p data-i18n="install_desktop_text">Chrome or Edge → Install icon in the address bar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. Join / Contact -->
   <section class="section contact-section" id="join">
     <div class="container">
       <div class="section-header reveal">
@@ -413,6 +450,14 @@
     <p class="footer-tagline" data-i18n="footer_tagline">Move with meaning. Breathe with presence. Flow with love.</p>
     <p class="footer-copy" data-i18n="footer_copy">© 2025 Alvina Flow. All rights reserved.</p>
   </footer>
+
+  <div class="pwa-sticky" id="pwa-sticky" hidden>
+    <p class="pwa-sticky-text" data-i18n="pwa_sticky_text">Install Alvina Flow App</p>
+    <div class="pwa-sticky-actions">
+      <button type="button" class="btn btn-primary btn-sm" id="pwa-sticky-install" data-i18n="app_install_btn">Install App</button>
+      <button type="button" class="btn btn-ghost btn-sm" id="pwa-sticky-dismiss" aria-label="Dismiss">×</button>
+    </div>
+  </div>
 
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>

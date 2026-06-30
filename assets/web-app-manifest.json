@@ -1,0 +1,30 @@
+{
+  "id": "https://www.alvinaflow.com/",
+  "name": "Alvina Flow — Breath, Movement & Connection",
+  "short_name": "Alvina Flow",
+  "description": "A gentle practice of breath, movement, healing, and mother-child connection.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "browser"],
+  "orientation": "any",
+  "background_color": "#faf8f6",
+  "theme_color": "#c4a574",
+  "lang": "en",
+  "categories": ["lifestyle", "health", "wellness"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/alvina-portrait.png",
+      "sizes": "820x864",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/alvina-portrait.png",
+      "sizes": "820x864",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
