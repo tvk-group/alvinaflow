@@ -125,73 +125,72 @@
       });
     }
 
+    const modal = document.getElementById('pwa-install-modal');
+    const backdrop = document.getElementById('pwa-install-backdrop');
+    const confirmBtn = document.getElementById('pwa-install-confirm');
+    const cancelBtn = document.getElementById('pwa-install-cancel');
     let deferredPrompt = null;
-    const installBtn = document.getElementById('pwa-install-btn');
-    const stickyBar = document.getElementById('pwa-sticky');
-    const stickyInstall = document.getElementById('pwa-sticky-install');
-    const stickyDismiss = document.getElementById('pwa-sticky-dismiss');
-    let stickyDismissed = false;
+    let dismissed = false;
 
     try {
-      stickyDismissed = sessionStorage.getItem('alvinaflow-pwa-dismissed') === '1';
+      dismissed = sessionStorage.getItem('alvinaflow-pwa-dismissed') === '1';
     } catch (e) {}
 
     function isStandalone() {
       return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
     }
 
-    function showInstallUi() {
-      if (isStandalone() || stickyDismissed) return;
-      if (installBtn) installBtn.hidden = !deferredPrompt;
-      if (stickyBar) stickyBar.hidden = false;
-      document.body.classList.add('has-pwa-sticky');
+    function showInstallModal() {
+      if (!modal || isStandalone() || dismissed || !deferredPrompt) return;
+      modal.hidden = false;
+      document.body.classList.add('pwa-modal-open');
     }
 
-    function hideInstallUi() {
-      if (installBtn) installBtn.hidden = true;
-      if (stickyBar) stickyBar.hidden = true;
-      document.body.classList.remove('has-pwa-sticky');
+    function hideInstallModal() {
+      if (!modal) return;
+      modal.hidden = true;
+      document.body.classList.remove('pwa-modal-open');
     }
 
-    function promptInstall() {
-      if (!deferredPrompt) {
-        const steps = document.getElementById('app-install-steps');
-        if (steps) {
-          const header = document.querySelector('.header');
-          const offset = header ? header.offsetHeight + 16 : 72;
-          const top = steps.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top, behavior: 'smooth' });
-        }
-        return;
-      }
+    function runNativeInstall() {
+      if (!deferredPrompt) return;
       deferredPrompt.prompt();
-      deferredPrompt.userChoice.then(() => {
+      deferredPrompt.userChoice.then(choice => {
         deferredPrompt = null;
-        hideInstallUi();
+        hideInstallModal();
+        if (choice.outcome === 'dismissed') {
+          dismissed = true;
+          try {
+            sessionStorage.setItem('alvinaflow-pwa-dismissed', '1');
+          } catch (e) {}
+        }
       });
     }
 
     window.addEventListener('beforeinstallprompt', e => {
       e.preventDefault();
       deferredPrompt = e;
-      showInstallUi();
+      showInstallModal();
     });
 
-    if (installBtn) installBtn.addEventListener('click', promptInstall);
-    if (stickyInstall) stickyInstall.addEventListener('click', promptInstall);
-
-    if (stickyDismiss) {
-      stickyDismiss.addEventListener('click', () => {
-        stickyDismissed = true;
+    if (confirmBtn) confirmBtn.addEventListener('click', runNativeInstall);
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', () => {
+        dismissed = true;
         try {
           sessionStorage.setItem('alvinaflow-pwa-dismissed', '1');
         } catch (e) {}
-        hideInstallUi();
+        hideInstallModal();
       });
     }
-
-    if (!isStandalone() && !stickyDismissed) {
-      window.setTimeout(showInstallUi, 1200);
+    if (backdrop) {
+      backdrop.addEventListener('click', () => {
+        dismissed = true;
+        try {
+          sessionStorage.setItem('alvinaflow-pwa-dismissed', '1');
+        } catch (e) {}
+        hideInstallModal();
+      });
     }
   }
 
