@@ -540,13 +540,6 @@ button {
   background: rgba(166, 124, 109, 0.08);
 }
 
-#pwa-sticky-dismiss {
-  min-width: 2.25rem;
-  padding: 0.35rem 0.5rem;
-  font-size: 1.25rem;
-  line-height: 1;
-}
-
 /* Sections */
 .section {
   padding: 6rem 1.5rem;
@@ -1160,126 +1153,94 @@ button {
   }
 }
 
-/* PWA Install */
-.app-install-section {
-  background: var(--warm-white);
+/* PWA Install Modal */
+body.pwa-modal-open {
+  overflow: hidden;
 }
 
-.app-install-card {
-  display: grid;
-  gap: 2rem;
-  padding: 2.5rem;
-  background: linear-gradient(135deg, var(--pearl) 0%, var(--lavender-soft) 100%);
-  border: 1px solid var(--rose-soft);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-}
-
-.app-install-copy h2 {
-  margin: 0.5rem 0 1rem;
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
-  font-weight: 500;
-  color: var(--text);
-}
-
-.app-install-copy p {
-  margin-bottom: 1.5rem;
-  max-width: 560px;
-  color: var(--text-light);
-}
-
-.app-install-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.app-install-steps {
-  display: grid;
-  gap: 1rem;
-}
-
-.install-step {
-  padding: 1rem 1.25rem;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--rose-soft);
-  border-radius: var(--radius);
-}
-
-.install-platform {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.35rem;
-}
-
-.install-step p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--text-light);
-}
-
-.pwa-sticky {
+.pwa-install-modal {
   position: fixed;
-  left: 1rem;
-  right: 1rem;
-  bottom: 1rem;
-  z-index: 1100;
+  inset: 0;
+  z-index: 2000;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.85rem 1rem;
-  background: rgba(250, 248, 246, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--rose-soft);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-soft);
+  justify-content: center;
+  padding: 1.5rem;
 }
 
-.pwa-sticky[hidden] {
+.pwa-install-modal[hidden] {
   display: none;
 }
 
-.pwa-sticky-text {
-  margin: 0;
-  font-size: 0.9rem;
+.pwa-install-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(74, 63, 58, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.pwa-install-dialog {
+  position: relative;
+  width: min(100%, 380px);
+  padding: 2rem 1.75rem 1.75rem;
+  text-align: center;
+  background: var(--warm-white);
+  border: 1px solid var(--rose-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 80px rgba(74, 63, 58, 0.2);
+  animation: pwaModalIn 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes pwaModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.pwa-install-photo-wrap {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--rose-soft);
+  box-shadow: var(--shadow-card);
+}
+
+.pwa-install-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.pwa-install-title {
+  margin: 0.5rem 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 4vw, 1.75rem);
   font-weight: 500;
   color: var(--text);
 }
 
-.pwa-sticky-actions {
+.pwa-install-desc {
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.pwa-install-dialog-actions {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-shrink: 0;
+  flex-direction: column;
+  gap: 0.65rem;
 }
 
-body.has-pwa-sticky {
-  padding-bottom: 5.5rem;
-}
-
-@media (min-width: 768px) {
-  .app-install-card {
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: center;
-    padding: 3rem;
-  }
-}
-
-@media (max-width: 767px) {
-  .pwa-sticky {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
-  }
-
-  .pwa-sticky-actions {
-    justify-content: center;
-  }
+.pwa-install-dialog-actions .btn {
+  width: 100%;
 }
