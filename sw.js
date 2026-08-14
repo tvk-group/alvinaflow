@@ -1,5 +1,5 @@
 /* Alvina Flow — service worker for PWA install */
-const CACHE_NAME = 'alvinaflow-pwa-v2';
+const CACHE_NAME = 'alvinaflow-pwa-v3';
 
 const PRECACHE = [
   '/',
